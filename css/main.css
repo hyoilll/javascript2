@@ -1,0 +1,45 @@
+#main .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#main .main .functions {
+  padding: 10px;
+}
+
+#main .header .icon_content,
+#main .main .icon_content {
+  display: flex;
+}
+
+#main .header .icon_content .icon,
+#main .main .icon_content .icon {
+  margin-right: 10px;
+}
+
+#main .header .icon_content .content {
+  display: flex;
+  flex-direction: column;
+}
+
+#main .header .icon_content .content .user_email {
+  color: rgb(155, 155, 155);
+}
+
+#main .header .header_col:first-child,
+#main .header .header_col:last-child {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+#main .header .header_col:nth-child(2) {
+  font-size: 15px;
+}
+
+#main .main .function_toDos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

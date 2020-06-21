@@ -1,0 +1,22 @@
+.todo_list .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.todo_list .main .todos {
+  padding: 10px;
+}
+
+.todo_list .header .icon {
+  margin-right: 10px;
+}
+
+.todo_list .main .add_btn .icon {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  font-size: 50px;
+  cursor: pointer;
+}
