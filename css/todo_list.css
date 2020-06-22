@@ -20,3 +20,48 @@
   font-size: 50px;
   cursor: pointer;
 }
+
+.todo_list .main .add_btn .to_do_div {
+  /* position: absolute;
+  bottom: 4%;
+  left: 20%;
+  margin-top: -100px;
+  margin-left: -100px;
+  width: 70%;
+  height: 50px;
+  font-size: 20px; */
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  width: 85%;
+  height: 60px;
+  padding: 10px 10px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+}
+
+.todo_list .main .add_btn .to_do_div .to_do_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.todo_list .main .add_btn .to_do_div .to_do_input {
+  width: 94%;
+  height: 40px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+}
+
+.todo_list .main .add_btn .to_do_div .to_do_submit {
+  height: 40px;
+  top: 10px;
+  right: 0px;
+  border: none;
+  outline: none;
+}
+
+.showing {
+  display: none;
+}
