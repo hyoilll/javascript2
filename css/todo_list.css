@@ -7,6 +7,12 @@
 
 .todo_list .main .todos {
   padding: 10px;
+  font-size: 25px;
+}
+
+.todo_list .main .todos i {
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .todo_list .header .icon {

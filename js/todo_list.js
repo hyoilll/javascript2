@@ -13,19 +13,29 @@ function saveData_localStorage() {
   localStorage.setItem(user_name, JSON.stringify(to_do_list_obj));
 }
 
-function saveData_obj(to_do_str) {
-  const list_number = to_do_list_obj.length + 1;
-
-  const item = {
-    content: to_do_str,
-    id: list_number,
-  };
-
+function saveData_obj(item) {
   to_do_list_obj.push(item);
 
-  console.log(to_do_list_obj);
-
   //savelocalstorage
+  saveData_localStorage();
+}
+
+function handleDelBtn(event) {
+  const target = event.target;
+  const li = target.parentNode.parentNode;
+  toDos.removeChild(li);
+
+  // to_do_list_obj = to_do_list_obj.filter(function (li_className)
+  // {
+  //   return to_do_list_obj
+  // });
+
+  for (let i = 0; i <= to_do_list_obj.length; ++i) {
+    if (to_do_list_obj[i].id == li.className) {
+      to_do_list_obj.splice(i, 1);
+    }
+  }
+
   saveData_localStorage();
 }
 
@@ -36,19 +46,33 @@ function paint_toDos() {
 
   for (let i = 0; i < user_to_do_list.length; ++i) {
     const to_do_li = document.createElement("li");
-    const to_do_span = document.createElement("span");
-    const to_do_del_icon = document.createElement("span");
+    const to_do_list_span = document.createElement("span");
+    const to_do_del_span = document.createElement("span");
+    const to_do_del_icon = document.createElement("i");
 
+    to_do_del_icon.addEventListener("click", handleDelBtn);
+
+    to_do_del_span.className = "icon";
     to_do_del_icon.className = "fas fa-minus-square";
+
     const toDo_content = user_to_do_list[i].content;
+    to_do_li.className = user_to_do_list[i].id;
 
-    to_do_span.innerText = toDo_content;
+    to_do_list_span.innerText = toDo_content;
 
-    to_do_li.appendChild(to_do_span);
-    to_do_li.appendChild(to_do_del_icon);
+    to_do_del_span.appendChild(to_do_del_icon);
+    to_do_li.appendChild(to_do_list_span);
+    to_do_li.appendChild(to_do_del_span);
     toDos.appendChild(to_do_li);
 
-    saveData_obj(toDo_content);
+    const list_number = to_do_list_obj.length + 1;
+
+    const item = {
+      content: toDo_content,
+      id: list_number,
+    };
+
+    saveData_obj(item);
   }
 }
 
@@ -64,18 +88,32 @@ function handleAddToDos(event) {
     document.querySelector(".to_do_input").value = "";
 
     const to_do_li = document.createElement("li");
-    const to_do_span = document.createElement("span");
-    const to_do_del_icon = document.createElement("span");
+    const to_do_list_span = document.createElement("span");
+    const to_do_del_span = document.createElement("span");
+    const to_do_del_icon = document.createElement("i");
 
+    to_do_del_icon.addEventListener("click", handleDelBtn);
+
+    to_do_del_span.className = "icon";
     to_do_del_icon.className = "fas fa-minus-square";
-    to_do_span.innerText = to_do_input_text;
 
-    to_do_li.appendChild(to_do_span);
-    to_do_li.appendChild(to_do_del_icon);
+    to_do_list_span.innerText = to_do_input_text;
+    to_do_li.className = to_do_list_obj.length + 1;
+
+    to_do_del_span.appendChild(to_do_del_icon);
+    to_do_li.appendChild(to_do_list_span);
+    to_do_li.appendChild(to_do_del_span);
     toDos.appendChild(to_do_li);
 
+    const list_number = to_do_list_obj.length + 1;
+
+    const item = {
+      content: to_do_input_text,
+      id: list_number,
+    };
+
     //saveData - object
-    saveData_obj(to_do_input_text);
+    saveData_obj(item);
   }
 }
 
@@ -96,12 +134,15 @@ function loadData() {
     const user_name = obj_user_data.name;
 
     const str_user_toDo = localStorage.getItem(user_name);
-    if (str_user_toDo != null) {
-      paint_toDos();
-    } else {
-      alert("to_do_listが空いてます。");
-    }
+    // if (str_user_toDo != null) {
+    // } else {
+    // }
 
+    if (str_user_toDo == null) {
+      alert("to_do_listが空いてます。");
+    } else {
+      paint_toDos();
+    }
     add_btn.addEventListener("click", handleAddBtn);
   } else {
   }
