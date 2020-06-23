@@ -13,8 +13,11 @@ function loadData() {
   user_name.innerText = string_user_info.name;
   user_email.innerText = string_user_info.email;
 
-  const to_do_cnt = JSON.parse(localStorage.getItem(string_user_info.name))
-    .length;
+  let to_do_cnt = 0;
+
+  if (JSON.parse(localStorage.getItem(string_user_info.name)) != null) {
+    to_do_cnt = JSON.parse(localStorage.getItem(string_user_info.name)).length;
+  }
 
   const list_cnt = document.querySelector(".list_cnt");
   list_cnt.innerText = to_do_cnt;
