@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .todo_list .main .todos {
