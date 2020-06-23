@@ -1,3 +1,6 @@
+#main {
+  font-size: 40px;
+}
 #main .header {
   display: flex;
   justify-content: space-between;
@@ -31,11 +34,11 @@
 #main .header .header_col:last-child {
   display: flex;
   align-items: center;
-  font-size: 25px;
+  /* //font-size: 25px; */
 }
 
 #main .header .header_col:nth-child(2) {
-  font-size: 15px;
+  /* //font-size: 15px; */
 }
 
 #main .main .function_toDos {
