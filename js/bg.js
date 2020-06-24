@@ -7,9 +7,15 @@ function genRandom() {
   return Math.floor(number);
 }
 
+const img = new Image();
+
+function changeImgSrc() {
+  const randomNumer = genRandom();
+  img.src = "../image/" + randomNumer + ".jpg";
+}
+
 function showBackGround() {
   const randomNumer = genRandom();
-  const img = new Image();
   img.src = "../image/" + randomNumer + ".jpg";
   img.className = "background";
 
@@ -18,7 +24,8 @@ function showBackGround() {
 
 function init() {
   showBackGround();
-  setInterval(showBackGround, 2000);
+
+  setInterval(changeImgSrc, 2000);
 }
 
 init();

@@ -84,6 +84,10 @@ function handleAddToDos(event) {
   let to_do_input_text = document.querySelector(".to_do_input").value;
   to_do_div.classList.add(IS_SHOWING);
 
+  const to_do_addBtn = document.querySelector(".add_btn .icon");
+
+  to_do_addBtn.classList.remove(IS_SHOWING);
+
   if (to_do_input_text != "") {
     document.querySelector(".to_do_input").value = "";
 
@@ -122,6 +126,10 @@ function handleAddBtn() {
   const to_do_submit = document.querySelector(".to_do_submit");
 
   to_do_div.classList.remove(IS_SHOWING);
+
+  const to_do_addBtn = document.querySelector(".add_btn .icon");
+
+  to_do_addBtn.classList.add(IS_SHOWING);
 
   to_do_submit.addEventListener("click", handleAddToDos);
 }
