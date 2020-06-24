@@ -30,7 +30,7 @@ function handleDelBtn(event) {
   //   return to_do_list_obj
   // });
 
-  for (let i = 0; i <= to_do_list_obj.length; ++i) {
+  for (let i = 0; i < to_do_list_obj.length; ++i) {
     if (to_do_list_obj[i].id == li.className) {
       to_do_list_obj.splice(i, 1);
     }
@@ -139,12 +139,21 @@ function loadData() {
     // }
 
     if (str_user_toDo == null) {
+      //toDos가 들어있는 list가 없을 때
       alert("to_do_listが空いてます。");
     } else {
-      paint_toDos();
+      //toDos_list를 들고있는 경우
+      if (JSON.parse(str_user_toDo).length == 0) {
+        //toDos_list는 들고있지만 빈 배열일 경우
+        alert("to_do_listが空いてます。");
+      } else {
+        //toDos_list도 들고있고 내용물이 있는 경우
+        paint_toDos();
+      }
     }
     add_btn.addEventListener("click", handleAddBtn);
   } else {
+    alert("Error,正しい接近ではありません。");
   }
 }
 

@@ -1,13 +1,15 @@
-.todo_list .header {
+.todo_list .header,
+.weather .header {
   display: flex;
   justify-content: space-between;
   padding: 10px;
   font-size: 25px;
 }
 
-.todo_list .main .todos {
+.todo_list .main .todos,
+.weather .main .js_weather {
   padding: 10px;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 .todo_list .main .todos i {
